@@ -1,8 +1,10 @@
-# Useful code snippets
-Here are examples of the contents of this repository:
+//
+//  InternetConnectionObserver.swift
+//  Swift Snippets
+//
+//  github.com/032nnxkitty
+//
 
-#### Internet Connection Observer:
-```swift
 import Network
 
 protocol InternetConnectionObserver {
@@ -34,31 +36,3 @@ class InternetConnectionObserverImp: InternetConnectionObserver {
         monitor.cancel()
     }
 }
-
-```
-
-#### MVVM Bindings
-```swift
-class ObservableObject<T> {
-    typealias Listener = (T) -> Void
-    
-    private var listener: Listener?
-    
-    var value: T {
-        didSet {
-            listener?(value)
-        }
-    }
-    
-    init(value: T) {
-        self.value = value
-    }
-    
-    func bind(listener: @escaping Listener) {
-        self.listener = listener
-    }
-}
-
-```
-
-And other :)
