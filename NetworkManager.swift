@@ -23,7 +23,7 @@ class NetworkManager {
         }
         
         var request = URLRequest(url: url)
-        //request.timeoutInterval = TIMEOUT_INTERVAL
+        request.timeoutInterval = <#Time interval#>
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error {

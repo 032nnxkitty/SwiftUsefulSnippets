@@ -9,11 +9,11 @@ import Network
 
 protocol InternetConnectionObserver {
     var isReachable: Bool { get }
-    func startMonitoring()
+    func startMonitoring(updateHandler: ((_ newPath: NWPath) -> Void)?)
     func stopMonitoring()
 }
 
-final class InternetConnectionObserverImp: InternetConnectionObserver {
+class InternetConnectionObserverImp: InternetConnectionObserver {
     private let monitor: NWPathMonitor
     private var status: NWPath.Status
     
@@ -26,17 +26,8 @@ final class InternetConnectionObserverImp: InternetConnectionObserver {
         return status == .satisfied
     }
     
-    func startMonitoring() {
-        monitor.pathUpdateHandler = { [weak self] path in
-            self?.status = path.status
-            
-            if path.status == .satisfied {
-                // do something
-            } else {
-                // do something
-            }
-        }
-        
+    func startMonitoring(updateHandler: ((_ newPath: NWPath) -> Void)? = nil) {
+        monitor.pathUpdateHandler = updateHandler
         let queue = DispatchQueue(label: "NetworkMonitor")
         monitor.start(queue: queue)
     }

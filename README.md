@@ -1,1 +1,1 @@
-# Userful parts of code
+# Useful parts of code

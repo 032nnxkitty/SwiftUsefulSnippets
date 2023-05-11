@@ -29,10 +29,10 @@ extension Theme {
 extension UserDefaults {
     var theme: Theme {
         get {
-            let currentThemeIndex = integer(forKey: "THEME_KEY_CONST")
+            let currentThemeIndex = integer(forKey: "theme.key")
             return Theme(rawValue: currentThemeIndex) ?? .dark
         } set {
-            set(newValue.rawValue, forKey: "THEME_KEY_CONST")
+            set(newValue.rawValue, forKey: "theme.key")
         }
     }
 }

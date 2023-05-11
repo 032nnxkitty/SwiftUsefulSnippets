@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ScrollableStackView: UIScrollView {
+class ScrollableStackView: UIScrollView {
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -19,15 +19,6 @@ public class ScrollableStackView: UIScrollView {
     init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(stackView)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - View Life Cycle
-    override func updateConstraints() {
-        super.updateConstraints()
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -35,6 +26,10 @@ public class ScrollableStackView: UIScrollView {
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             stackView.widthAnchor.constraint(equalTo: self.widthAnchor),
         ])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
