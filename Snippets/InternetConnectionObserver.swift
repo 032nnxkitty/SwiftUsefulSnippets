@@ -26,8 +26,10 @@ class InternetConnectionObserverImp: InternetConnectionObserver {
         return status == .satisfied
     }
     
-    func startMonitoring(updateHandler: ((_ newPath: NWPath) -> Void)? = nil) {
-        monitor.pathUpdateHandler = updateHandler
+    func startMonitoring() {
+        monitor.pathUpdateHandler = { [weak self] path in
+            self?.status = path.status
+        }
         let queue = DispatchQueue(label: "NetworkMonitor")
         monitor.start(queue: queue)
     }
