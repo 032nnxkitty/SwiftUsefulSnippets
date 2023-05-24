@@ -63,7 +63,7 @@ class ObservableObject<T> {
 ```
 
 #### UINavigationBarLargeTitleView
-```
+```swift
 override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     guard let UINavigationBarLargeTitleView = NSClassFromString("_UINavigationBarLargeTitleView") else { return }
