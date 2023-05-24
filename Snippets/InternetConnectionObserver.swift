@@ -9,7 +9,7 @@ import Network
 
 protocol InternetConnectionObserver {
     var isReachable: Bool { get }
-    func startMonitoring(updateHandler: ((_ newPath: NWPath) -> Void)?)
+    func startMonitoring()
     func stopMonitoring()
 }
 
