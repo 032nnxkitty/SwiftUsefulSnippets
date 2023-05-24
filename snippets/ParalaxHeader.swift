@@ -1,3 +1,10 @@
+//
+//  SelfSizedTableView.swift
+//  Swift Snippets
+//
+//  github.com/032nnxkitty
+//
+
 class ViewController: UIViewController {
     // MARK: - UI Elements
     private let imageView: UIImageView = {

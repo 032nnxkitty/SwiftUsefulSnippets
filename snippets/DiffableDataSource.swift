@@ -1,3 +1,10 @@
+//
+//  SelfSizedTableView.swift
+//  Swift Snippets
+//
+//  github.com/032nnxkitty
+//
+
 import UIKit
 
 fileprivate enum Section {

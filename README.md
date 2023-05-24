@@ -36,8 +36,6 @@ class InternetConnectionObserverImp: InternetConnectionObserver {
         monitor.cancel()
     }
 }
-
-
 ```
 
 #### MVVM Bindings
