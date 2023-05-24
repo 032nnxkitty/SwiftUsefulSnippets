@@ -62,4 +62,18 @@ class ObservableObject<T> {
 
 ```
 
+#### UINavigationBarLargeTitleView
+```
+override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    guard let UINavigationBarLargeTitleView = NSClassFromString("_UINavigationBarLargeTitleView") else { return }
+        navigationController?.navigationBar.subviews.forEach { barSubview in
+            if barSubview.isKind(of: UINavigationBarLargeTitleView.self) {
+                // do something with this view
+            }
+        }
+    }
+}
+```
+
 And other :)
