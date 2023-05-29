@@ -7,21 +7,25 @@ import Network
 
 protocol InternetConnectionObserver {
     var isReachable: Bool { get }
-    func startMonitoring(updateHandler: ((_ newPath: NWPath) -> Void)?)
+    func startMonitoring()
     func stopMonitoring()
 }
 
 class InternetConnectionObserverImp: InternetConnectionObserver {
-    private let monitor: NWPathMonitor
-    private var status: NWPath.Status
-    
-    init() {
-        self.monitor = NWPathMonitor()
-        self.status = .requiresConnection
-    }
+    private let monitor = NWPathMonitor()
+    private var status: NWPath.Status = .requiresConnection
+    private let lock = NSLock()
     
     var isReachable: Bool {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
         return status == .satisfied
+    }
+    
+    private init() {
+        startMonitoring()
     }
     
     func startMonitoring() {
