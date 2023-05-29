@@ -15,7 +15,7 @@ fileprivate struct CellModel: Hashable {
     var title: String
 }
 
-class ViewController: UITableViewController {
+final class ViewController: UITableViewController {
     private let identifier = "cell.identifier"
     
     private lazy var diffableDataSource: UITableViewDiffableDataSource<Section, CellModel> = {

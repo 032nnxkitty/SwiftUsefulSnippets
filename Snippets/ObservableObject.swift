@@ -5,7 +5,7 @@
 //  github.com/032nnxkitty
 //
 
-class ObservableObject<T> {
+final class ObservableObject<T> {
     typealias Listener = (T) -> Void
     
     private var listener: Listener?

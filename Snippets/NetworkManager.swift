@@ -15,7 +15,7 @@ enum NetworkError: Error {
     case somethingWentWrong
 }
 
-class NetworkManager {
+final class NetworkManager {
     func request<T: Decodable>(url: URL?, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url else {
             completion(.failure(NetworkError.invalidURL))
